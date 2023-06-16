@@ -5,5 +5,5 @@ class User < ApplicationRecord
     def tests_by_difficulty(level)
       tests.where(user_tests: { level: level })
     end
-  end
+end
   
