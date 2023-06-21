@@ -2,6 +2,6 @@
 
 class User < ApplicationRecord
   def tests_by_difficulty(level)
-    Test.where(author_id: id, level: level)
+    Test.where(user_id: id, level: level).order(title: :asc)
   end
 end
