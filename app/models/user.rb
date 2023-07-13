@@ -1,9 +1,8 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-    has_many :user_tests
-    has_many :tests, through: :user_tests
-  
-    def tests_by_difficulty(level)
-      tests.where(user_tests: { level: level })
-    end
+  def tests_at_difficulty_level(level)
+    Test.joins('INNER JOIN results ON results.test_id = tests.id')
+        .where(results: { user_id: id }, level: level)
+  end
 end
-  
