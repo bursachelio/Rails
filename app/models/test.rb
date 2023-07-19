@@ -7,6 +7,10 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :users, through: :results
+
+  scope :easy, -> { where(level: [0, 1]) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where('level >= ?', 5) }
   
   def self.sorted_test_titles_by_category_name(category_name)
     joins(:category)
