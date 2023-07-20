@@ -23,9 +23,9 @@ users = User.create!([
 
 # Создание тестов
 tests = Test.create!([
-                       { title: 'Test 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
-                       { title: 'Test 2', level: 2, category_id: categories[0].id, author_id: users[1].id },
-                       { title: 'Test 3', level: 3, category_id: categories[0].id, author_id: users[2].id }
+                       { title: 'Test 1 - Level 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
+                       { title: 'Test 2 - Level 2 ', level: 2, category_id: categories[0].id, author_id: users[1].id },
+                       { title: 'Test 3 - Level 3', level: 3, category_id: categories[0].id, author_id: users[2].id }
                      ])
 
 # Создание вопросов для тестов

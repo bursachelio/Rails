@@ -3,6 +3,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  scope :correct, -> { where(correct: true) }
+  default_scope { order(title: :asc) }
 
 end
