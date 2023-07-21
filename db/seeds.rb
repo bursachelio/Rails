@@ -23,9 +23,9 @@ users = User.create!([
 
 # Создание тестов
 tests = Test.create!([
-                       { title: 'Test 1 - Level 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
-                       { title: 'Test 2 - Level 2 ', level: 2, category_id: categories[0].id, author_id: users[1].id },
-                       { title: 'Test 3 - Level 3', level: 3, category_id: categories[0].id, author_id: users[2].id }
+                       { title: 'Test 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
+                       { title: 'Test 2', level: 2, category_id: categories[0].id, author_id: users[1].id },
+                       { title: 'Test 3', level: 3, category_id: categories[0].id, author_id: users[2].id }
                      ])
 
 # Создание вопросов для тестов
@@ -40,31 +40,31 @@ questions = Question.create!([
 
 # Создание ответов для вопросов
 Answer.create!([
-                 { body: 'Answer 1 for Question 1', correct: true, question_id: questions[0].id },
-                 { body: 'Answer 2 for Question 1', correct: false, question_id: questions[0].id },
-                 { body: 'Answer 3 for Question 1', correct: false, question_id: questions[0].id },
-                 { body: 'Answer 4 for Question 1', correct: false, question_id: questions[0].id },
-                 { body: 'Answer 1 for Question 2', correct: false, question_id: questions[1].id },
-                 { body: 'Answer 2 for Question 2', correct: true, question_id: questions[1].id },
-                 { body: 'Answer 3 for Question 2', correct: false, question_id: questions[1].id },
-                 { body: 'Answer 4 for Question 2', correct: false, question_id: questions[1].id },
-                 { body: 'Answer 1 for Question 3', correct: false, question_id: questions[2].id },
-                 { body: 'Answer 2 for Question 3', correct: false, question_id: questions[2].id },
-                 { body: 'Answer 3 for Question 3', correct: true, question_id: questions[2].id },
-                 { body: 'Answer 4 for Question 3', correct: false, question_id: questions[2].id },
-                 { body: 'Answer 1 for Question 4', correct: false, question_id: questions[3].id },
-                 { body: 'Answer 2 for Question 4', correct: false, question_id: questions[3].id },
-                 { body: 'Answer 3 for Question 4', correct: false, question_id: questions[3].id },
-                 { body: 'Answer 4 for Question 4', correct: true, question_id: questions[3].id },
-                 { body: 'Answer 1 for Question 5', correct: false, question_id: questions[4].id },
-                 { body: 'Answer 2 for Question 5', correct: true, question_id: questions[4].id },
-                 { body: 'Answer 3 for Question 5', correct: false, question_id: questions[4].id },
-                 { body: 'Answer 4 for Question 5', correct: false, question_id: questions[4].id },
-                 { body: 'Answer 1 for Question 6', correct: true, question_id: questions[5].id },
-                 { body: 'Answer 2 for Question 6', correct: false, question_id: questions[5].id },
-                 { body: 'Answer 3 for Question 6', correct: false, question_id: questions[5].id },
-                 { body: 'Answer 4 for Question 6', correct: false, question_id: questions[5].id }
-               ])
+  { body: 'Answer 1 for Question 1', correct: true, question_id: questions[0].id },
+  { body: 'Answer 2 for Question 1', correct: false, question_id: questions[0].id },
+  { body: 'Answer 3 for Question 1', correct: false, question_id: questions[0].id },
+  { body: 'Answer 4 for Question 1', correct: false, question_id: questions[0].id },
+  { body: 'Answer 1 for Question 2', correct: false, question_id: questions[1].id },
+  { body: 'Answer 2 for Question 2', correct: true, question_id: questions[1].id },
+  { body: 'Answer 3 for Question 2', correct: false, question_id: questions[1].id },
+  { body: 'Answer 4 for Question 2', correct: false, question_id: questions[1].id },
+  { body: 'Answer 1 for Question 3', correct: false, question_id: questions[2].id },
+  { body: 'Answer 2 for Question 3', correct: false, question_id: questions[2].id },
+  { body: 'Answer 3 for Question 3', correct: true, question_id: questions[2].id },
+  { body: 'Answer 4 for Question 3', correct: false, question_id: questions[2].id },
+  { body: 'Answer 1 for Question 4', correct: false, question_id: questions[3].id },
+  { body: 'Answer 2 for Question 4', correct: false, question_id: questions[3].id },
+  { body: 'Answer 3 for Question 4', correct: false, question_id: questions[3].id },
+  { body: 'Answer 4 for Question 4', correct: true, question_id: questions[3].id },
+  { body: 'Answer 1 for Question 5', correct: false, question_id: questions[4].id },
+  { body: 'Answer 2 for Question 5', correct: true, question_id: questions[4].id },
+  { body: 'Answer 3 for Question 5', correct: false, question_id: questions[4].id },
+  { body: 'Answer 4 for Question 5', correct: false, question_id: questions[4].id },
+  { body: 'Answer 1 for Question 6', correct: true, question_id: questions[5].id },
+  { body: 'Answer 2 for Question 6', correct: false, question_id: questions[5].id },
+  { body: 'Answer 3 for Question 6', correct: false, question_id: questions[5].id },
+  { body: 'Answer 4 for Question 6', correct: false, question_id: questions[5].id }
+])
 
 # Создание результатов для пользователей и тестов
 Result.create!([
