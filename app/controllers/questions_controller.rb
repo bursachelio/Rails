@@ -1,39 +1,47 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: [:index, :show, :new, :create, :destroy]
+  before_action :find_test
+  before_action :find_question, only: [:show, :destroy]
 
   def index
     @questions = @test.questions
+    render plain: @questions.map(&:content).join("\n"), status: :ok
   end
 
   def show
-    @question = @test.questions.find(params[:id])
+    render plain: @question.content, status: :ok
   end
 
   def new
-    @question = @test.questions.build
+    @question = @test.questions.new
   end
 
   def create
-    @question = @test.questions.build(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_question_path(@test, @question), notice: 'Question was successfully created.'
+      render plain: "Question was successfully created!", status: :created
     else
-      render :new
+      render plain: "Question creation failed!", status: :unprocessable_entity
     end
   end
 
   def destroy
-    @question = @test.questions.find(params[:id])
     @question.destroy
-    redirect_to test_questions_path(@test), notice: 'Question was successfully destroyed.'
+    render plain: "Question was successfully deleted!", status: :ok
   end
 
   private
 
   def find_test
     @test = Test.find(params[:test_id])
+  rescue ActiveRecord::RecordNotFound
+    render plain: "Test not found", status: :not_found
+  end
+
+  def find_question
+    @question = @test.questions.find_by(id: params[:id])
+    render plain: "Question not found", status: :not_found unless @question
   end
 
   def question_params
