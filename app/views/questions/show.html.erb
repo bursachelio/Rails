@@ -1,5 +1,6 @@
 
-<h1>Вопрос теста <%= @test.title %></h1>
+<h1>Вопрос</h1>
 <p><%= @question.content %></p>
 
-<%= link_to 'Назад к списку вопросов', test_questions_path(@test) %>
+<%= link_to "Редактировать", edit_test_question_path(@test, @question) %>
+<%= link_to "Удалить", test_question_path(@test, @question), method: :delete, data: { confirm: "Вы уверены?" } %>

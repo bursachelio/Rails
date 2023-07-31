@@ -1,11 +1,19 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def question_header(question, test)
+  def author_name
+    "Иван Бурсак"
+  end
+
+  def github_url
+    "https://github.com/bursachelio"
+  end
+
+  def question_header(question)
     if question.new_record?
-      "Create New #{test.title} Question"
+      "Create New #{question.test.title} Question"
     else
-      "Edit #{test.title} Question"
+      "Edit #{question.test.title} Question"
     end
   end
 
