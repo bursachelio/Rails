@@ -20,15 +20,15 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "Question was successfully created!", status: :created
+      render plain: "Вопрос успешно создан!", status: :created
     else
-      render plain: "Question creation failed!", status: :unprocessable_entity
+      render plain: "Не удалось создать вопрос!", status: :unprocessable_entity
     end
   end
 
   def destroy
     @question.destroy
-    render plain: "Question was successfully deleted!", status: :ok
+    render plain: "Вопрос успешно удален!", status: :ok
   end
 
   private
@@ -36,12 +36,12 @@ class QuestionsController < ApplicationController
   def find_test
     @test = Test.find(params[:test_id])
   rescue ActiveRecord::RecordNotFound
-    render plain: "Test not found", status: :not_found
+    render plain: "Тест не найден", status: :not_found
   end
 
   def find_question
     @question = @test.questions.find_by(id: params[:id])
-    render plain: "Question not found", status: :not_found unless @question
+    render plain: "Вопрос не найден", status: :not_found unless @question
   end
 
   def question_params

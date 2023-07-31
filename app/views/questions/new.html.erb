@@ -1,0 +1,6 @@
+
+<h1>Новый вопрос теста <%= @test.title %></h1>
+
+<%= render 'form', question: @question %>
+
+<%= link_to 'Назад к списку вопросов', test_questions_path(@test) %>
