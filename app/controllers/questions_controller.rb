@@ -20,11 +20,11 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "Вопрос успешно создан!", status: :created
+      redirect_to test_question_path(@test, @question), notice: "Вопрос успешно создан!"
     else
-      render plain: "Не удалось создать вопрос!", status: :unprocessable_entity
+      render :new
     end
-  end
+  end  
 
   def destroy
     @question.destroy
@@ -40,9 +40,10 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find_by(id: params[:id])
-    render plain: "Вопрос не найден", status: :not_found unless @question
-  end
+    @question = @test.questions.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render plain: "Вопрос не найден", status: :not_found
+  end  
 
   def question_params
     params.require(:question).permit(:content)

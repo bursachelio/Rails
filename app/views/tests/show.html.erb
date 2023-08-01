@@ -1,10 +1,18 @@
 
-<h1><%= @test.title %></h1>
+<h1>Тест: <%= @test.title %></h1>
 
+<p>Описание теста: <%= @test.description %></p>
+
+<h2>Список вопросов:</h2>
 <ul>
-  <% @test.questions.each do |question| %>
-    <li><%= link_to question.content, question_path(question) %></li>
+  <% @questions.each do |question| %>
+    <li><%= link_to question.content, question_path(@test, question) %></li>
   <% end %>
 </ul>
 
-<%= link_to "Создать новый вопрос", new_test_question_path(@test) %>
+<%= link_to 'Добавить вопрос', new_test_question_path(@test) %>
+
+<p>
+  <%= link_to 'Редактировать тест', edit_test_path(@test) %>
+  <%= link_to 'Удалить тест', @test, method: :delete, data: { confirm: 'Вы уверены?' } %>
+</p>

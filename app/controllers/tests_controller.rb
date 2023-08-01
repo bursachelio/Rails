@@ -42,9 +42,7 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to tests_path, alert: 'Тест не найден'
-  end
+  end  
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)

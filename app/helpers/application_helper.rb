@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  AUTHOR_NAME = "Иван Бурсак".freeze
+
   def author_name
-    "Иван Бурсак"
+    AUTHOR_NAME
   end
 
   def github_url
@@ -18,10 +20,10 @@ module ApplicationHelper
   end
 
   def current_year
-    Time.now.year
+    Time.current.year
   end
 
   def github_url(author, repo)
-    "https://github.com/#{author}/#{repo}"
+    link_to "GitHub репозиторий", "https://github.com/#{author}/#{repo}", target: "_blank"
   end
 end
