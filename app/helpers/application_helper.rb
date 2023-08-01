@@ -3,12 +3,8 @@
 module ApplicationHelper
   AUTHOR_NAME = "Иван Бурсак".freeze
 
-  def author_name
-    AUTHOR_NAME
-  end
-
   def github_url
-    "https://github.com/bursachelio"
+    link_to "https://github.com/bursachelio"
   end
 
   def question_header(question)
@@ -23,7 +19,4 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def github_url(author, repo)
-    link_to "GitHub репозиторий", "https://github.com/#{author}/#{repo}", target: "_blank"
-  end
 end

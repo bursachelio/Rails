@@ -1,14 +1,9 @@
 
 <h1>Тест: <%= @test.title %></h1>
-
 <p>Описание теста: <%= @test.description %></p>
 
 <h2>Список вопросов:</h2>
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= link_to question.content, question_path(@test, question) %></li>
-  <% end %>
-</ul>
+<%= render @questions %>
 
 <%= link_to 'Добавить вопрос', new_test_question_path(@test) %>
 
