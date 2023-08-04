@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test
   before_action :find_question, only: [:show, :destroy]
 
   def index
     @questions = @test.questions
-    render plain: @questions.map(&:content).join("\n"), status: :ok
   end
 
   def show
@@ -33,12 +31,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def find_test
-    @test = Test.find(params[:test_id])
-  end
-
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params

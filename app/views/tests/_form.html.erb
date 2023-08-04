@@ -1,0 +1,19 @@
+<h1><%= question_header(@test, action) %></h1>
+
+<%= form_with model: @test do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.submit 'Сохранить изменения' %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад к тестам', tests_path %>

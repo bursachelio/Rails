@@ -7,6 +7,8 @@ class TestsController < ApplicationController
   end
 
   def show
+    @questions = @test.questions
+    logger.debug "Questions: #{@questions}"
   end
 
   def new
@@ -34,8 +36,9 @@ class TestsController < ApplicationController
   end
 
   def destroy
+    @test = Test.find(params[:id])
     @test.destroy
-    redirect_to tests_path, notice: 'Тест успешно удален!'
+    redirect_to tests_path, notice: "Тест успешно удален!"
   end
 
   private
