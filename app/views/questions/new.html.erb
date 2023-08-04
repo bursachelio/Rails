@@ -1,4 +1,14 @@
+<h1>Create New <%= @test.title %> Question</h1>
 
-<h1>Новый вопрос теста <%= @test.title %></h1>
+<%= form_with model: [@test, @question] do |form| %>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
 
-<%= render 'form', question: @question %>
+<%= link_to 'Назад к вопросу', test_questions_path(@test) %>

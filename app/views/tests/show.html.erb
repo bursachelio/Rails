@@ -1,8 +1,4 @@
-<h2>Список вопросов:</h2>
-<% @questions.each do |question| %>
-  <h2><%= question.content %></h2>
-<% end %>
-
-<p><%= link_to 'Назад к тестам', tests_path %></p>
-
-<p><%= link_to 'Добавить вопрос', new_test_question_path(@test) %></p>
+<h1><%= @test.title %></h1>
+<p>Level: <%= test_level(@test) %></p>
+<%= link_to 'Изменить', edit_test_path(@test) %> |
+<%= link_to 'Назад', tests_path %>
