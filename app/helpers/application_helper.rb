@@ -6,11 +6,11 @@ module ApplicationHelper
     "Иван Бурсак"
   end
 
-  def question_header(test, action)
-    if action == :new
-      "Create New #{test.title} Question"
-    elsif action == :edit
-      "Edit #{test.title} Question"
+  def question_header(question)
+    if question.new_record?
+      "Create New #{question.test.title} Question"
+    else
+      "Edit #{question.test.title} Question"
     end
   end
 
