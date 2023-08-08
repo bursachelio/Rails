@@ -1,3 +1,13 @@
-<h1>Question</h1>
-<p><%= @question.content %></p>
-<%= link_to 'Назад', tests_path %>
+<h1>Title: <%= @test.title %></h1>
+<p>Level: <%= @test.level %></p>
+
+<h2>Questions:</h2>
+<ul>
+  <% @test.questions.each do |question| %>
+    <li>
+      <%= question.content %>
+      <%= link_to 'Edit', edit_test_question_path(@test, question) %> |
+      <%= link_to 'Delete', test_question_path(@test, question), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>

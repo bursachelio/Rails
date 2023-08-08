@@ -1,10 +1,11 @@
-<h1><%= @test.title %> Questions</h1>
+<h1>Questions</h1>
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Actions</th>
+  </tr>
 
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= question.content %></li>
-  <% end %>
-</ul>
+  <%= render @questions %>
+</table>
 
-<%= link_to 'Назад к тестам', test_path(@test) %>
-<%= link_to 'Новый вопрос', new_test_question_path(@test) %>
+<%= link_to 'Назад к тестам', tests_path %>
