@@ -1,10 +1,16 @@
 <tr>
   <td><%= test.title %></td>
   <td><%= test.level %></td>
-  <td><%= test.questions.count %></td>
+  <td>
+    <ul>
+      <% test.questions.each do |question| %>
+        <li><%= question.content %></li>
+      <% end %>
+    </ul>
+  </td>
   <td><%= link_to 'Просмотр', test_path(test) %></td>
   <td><%= link_to 'Изменить', edit_test_path(test) %></td>
   <td>
-    <%= link_to 'Удалить', test_path(test), method: :delete, data: { confirm: 'Вы уверены?' } %>
+  <%= link_to 'Удалить', test_path(test), method: :delete, data: { confirm: 'Вы уверены?' } %>
   </td>
 </tr>
