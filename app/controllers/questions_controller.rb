@@ -4,25 +4,29 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
 
   def new
+    @test = Test.find(params[:test_id])
     @question = @test.questions.build
   end
 
   def create
+    @test = Test.find(params[:test_id])
     @question = @test.questions.build(question_params)
+  
     if @question.save
-      redirect_to test_path
+      redirect_to test_path(@question.test), notice: 'Вопрос успешно создан.'
     else
       render :new
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @question.update(question_params)
       redirect_to test_path(@question.test)
     else
-      render :edit
+      render plain: "Question creation failed!", status: :unprocessable_entity
     end
   end
 
@@ -31,7 +35,8 @@ class QuestionsController < ApplicationController
     redirect_to test_path(@question.test)
   end
 
-  def show; end
+  def show
+  end
 
   private
 

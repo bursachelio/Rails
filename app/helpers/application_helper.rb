@@ -7,9 +7,9 @@ module ApplicationHelper
 
   def question_header(question)
     if question.new_record?
-      "Create New #{question.test.title} Question"
+      "Create New Question"
     else
-      "Edit #{question.test.title} Question"
+      "Edit Question"
     end
   end
 

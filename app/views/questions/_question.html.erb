@@ -1,1 +1,5 @@
-<li><%= question.content %></li>
+<li>
+  <%= question.content %>
+  <td><%= link_to 'Изменить', edit_question_path(question) %></td>
+  <td><%= button_to 'Удалить', question, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+</li>
