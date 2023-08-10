@@ -16,9 +16,9 @@ categories = Category.create!([
 
 # Создание пользователей
 users = User.create!([
-                      { name: 'User 1', email: 'user1@example.com' },
-                      { name: 'User 2', email: 'user2@example.com' },
-                      { name: 'User 3', email: 'user3@example.com' }
+                       { name: 'User 1', email: 'user1@example.com' },
+                       { name: 'User 2', email: 'user2@example.com' },
+                       { name: 'User 3', email: 'user3@example.com' }
                      ])
 
 # Создание тестов
@@ -30,41 +30,47 @@ tests = Test.create!([
 
 # Создание вопросов для тестов
 questions = Question.create!([
-                               { content: 'Какая деталь автомобиля получила своё название от одного из семи чудес Древнего мира?', test_id: tests[0].id },
-                               { content: 'С каким из этих государств Румыния не имеет общих границ?', test_id: tests[0].id },
-                               { content: 'Про кого из персонажей «Гамлета» Гертруда, королева датская, говорит в пьесе: «Он тучен и одышлив»?', test_id: tests[1].id },
-                               { content: 'Кто возглавлял экспедицию, совершившую первое кругосветное плавание?', test_id: tests[1].id },
+                               {
+                                 content: 'Какая деталь автомобиля получила своё название от одного из семи чудес Древнего мира?', test_id: tests[0].id
+                               },
+                               { content: 'С каким из этих государств Румыния не имеет общих границ?',
+                                 test_id: tests[0].id },
+                               {
+                                 content: 'Про кого из персонажей «Гамлета» Гертруда, королева датская, говорит в пьесе: «Он тучен и одышлив»?', test_id: tests[1].id
+                               },
+                               { content: 'Кто возглавлял экспедицию, совершившую первое кругосветное плавание?',
+                                 test_id: tests[1].id },
                                { content: 'Какое из этих государств не имеет морских берегов?', test_id: tests[2].id },
                                { content: 'Что такое фьючерс?', test_id: tests[2].id }
                              ])
 
 # Создание ответов для вопросов
 Answer.create!([
-  { body: 'Фара', correct: true, question_id: questions[0].id },
-  { body: 'Бампер', correct: false, question_id: questions[0].id },
-  { body: 'Капот', correct: false, question_id: questions[0].id },
-  { body: 'Лобовое стекло', correct: false, question_id: questions[0].id },
-  { body: 'Сербия', correct: false, question_id: questions[1].id },
-  { body: 'Россия', correct: true, question_id: questions[1].id },
-  { body: 'Венгрия', correct: false, question_id: questions[1].id },
-  { body: 'Швейцария', correct: false, question_id: questions[1].id },
-  { body: 'Клавдий, король датский', correct: false, question_id: questions[2].id },
-  { body: 'Горацио, друг Гамлета', correct: false, question_id: questions[2].id },
-  { body: 'Гамлет, сын Гертруды', correct: true, question_id: questions[2].id },
-  { body: 'Answer 4 for Question 1', correct: false, question_id: questions[2].id },
-  { body: 'Христофор Колумб', correct: false, question_id: questions[3].id },
-  { body: 'Афанасий Никитин', correct: false, question_id: questions[3].id },
-  { body: 'Answer 3 for Question 2', correct: false, question_id: questions[3].id },
-  { body: 'Фернан Магеллан', correct: true, question_id: questions[3].id },
-  { body: 'Китай', correct: false, question_id: questions[4].id },
-  { body: 'Монголия', correct: true, question_id: questions[4].id },
-  { body: 'Answer 3 for Question 1', correct: false, question_id: questions[4].id },
-  { body: 'Болгария', correct: false, question_id: questions[4].id },
-  { body: 'вид биржевого контракта', correct: true, question_id: questions[5].id },
-  { body: 'Answer 2 for Question 2', correct: false, question_id: questions[5].id },
-  { body: 'парус на яхте', correct: false, question_id: questions[5].id },
-  { body: 'глагол в будущем времени', correct: false, question_id: questions[5].id }
-])
+                 { body: 'Фара', correct: true, question_id: questions[0].id },
+                 { body: 'Бампер', correct: false, question_id: questions[0].id },
+                 { body: 'Капот', correct: false, question_id: questions[0].id },
+                 { body: 'Лобовое стекло', correct: false, question_id: questions[0].id },
+                 { body: 'Сербия', correct: false, question_id: questions[1].id },
+                 { body: 'Россия', correct: true, question_id: questions[1].id },
+                 { body: 'Венгрия', correct: false, question_id: questions[1].id },
+                 { body: 'Швейцария', correct: false, question_id: questions[1].id },
+                 { body: 'Клавдий, король датский', correct: false, question_id: questions[2].id },
+                 { body: 'Горацио, друг Гамлета', correct: false, question_id: questions[2].id },
+                 { body: 'Гамлет, сын Гертруды', correct: true, question_id: questions[2].id },
+                 { body: 'Answer 4 for Question 1', correct: false, question_id: questions[2].id },
+                 { body: 'Христофор Колумб', correct: false, question_id: questions[3].id },
+                 { body: 'Афанасий Никитин', correct: false, question_id: questions[3].id },
+                 { body: 'Answer 3 for Question 2', correct: false, question_id: questions[3].id },
+                 { body: 'Фернан Магеллан', correct: true, question_id: questions[3].id },
+                 { body: 'Китай', correct: false, question_id: questions[4].id },
+                 { body: 'Монголия', correct: true, question_id: questions[4].id },
+                 { body: 'Answer 3 for Question 1', correct: false, question_id: questions[4].id },
+                 { body: 'Болгария', correct: false, question_id: questions[4].id },
+                 { body: 'вид биржевого контракта', correct: true, question_id: questions[5].id },
+                 { body: 'Answer 2 for Question 2', correct: false, question_id: questions[5].id },
+                 { body: 'парус на яхте', correct: false, question_id: questions[5].id },
+                 { body: 'глагол в будущем времени', correct: false, question_id: questions[5].id }
+               ])
 
 # Создание результатов для пользователей и тестов
 Result.create!([

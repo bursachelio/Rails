@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
-  before_action :find_test
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_question, only: %i[show edit update destroy]
 
   def new
     @question = @test.questions.build
@@ -15,12 +16,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit
-    @question = Question.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       redirect_to test_path(@question.test)
     else
@@ -29,14 +27,13 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-
+    @question.destroy
+    redirect_to test_path(@question.test)
   end
+
+  def show; end
 
   private
-
-  def find_test
-    @test = Test.find(params[:test_id])
-  end
 
   def find_question
     @question = Question.find(params[:id])

@@ -1,5 +1,5 @@
 <h2>Questions:</h2>
 <ul>
   <%= render @questions %>
-  <%= link_to 'Удалить', test_question_path(@test, question), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Удалить', test_question_path(@test, question), method: :delete, data: { confirm: 'Are you sure?' } %>
 </ul>

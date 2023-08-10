@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
   def author_name
-    "Иван Бурсак"
+    'Иван Бурсак'
   end
 
   def question_header(question)
@@ -19,6 +18,6 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    link_to "Проект на GitHub", "https://github.com/#{author}/#{repo}", target: "_blank"
+    link_to 'Проект на GitHub', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 end
