@@ -2,25 +2,28 @@
 
 class QuestionsController < ApplicationController
   before_action :find_test
-  before_action :find_question, only: [:show, :destroy]
-
-  def index
-    @questions = @test.questions
-    render plain: @questions.map(&:content).join("\n"), status: :ok
-  end
-
-  def show
-    render plain: @question.content, status: :ok
-  end
+  before_action :find_question, only: %i[show edit update destroy]
 
   def new
-    @question = @test.questions.new
+    @question = @test.questions.build
   end
 
   def create
-    @question = @test.questions.new(question_params)
+    @question = @test.questions.build(question_params)
+  
     if @question.save
-      render plain: "Question was successfully created!", status: :created
+      redirect_to test_path(@test), notice: 'Вопрос успешно создан.'
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@test)
     else
       render plain: "Question creation failed!", status: :unprocessable_entity
     end
@@ -28,20 +31,20 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    render plain: "Question was successfully deleted!", status: :ok
+    redirect_to test_path
+  end
+
+  def show
   end
 
   private
 
   def find_test
     @test = Test.find(params[:test_id])
-  rescue ActiveRecord::RecordNotFound
-    render plain: "Test not found", status: :not_found
   end
 
   def find_question
-    @question = @test.questions.find_by(id: params[:id])
-    render plain: "Question not found", status: :not_found unless @question
+    @question = @test.questions.find(params[:id])
   end
 
   def question_params

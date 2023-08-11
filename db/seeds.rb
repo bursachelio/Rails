@@ -9,68 +9,68 @@
 # Character.create(name: "Luke", movie: movies.first)
 
 categories = Category.create!([
-                                { title: 'Category 1' },
-                                { title: 'Category 2' },
-                                { title: 'Category 3' }
-                              ])
+  { title: 'Category 1' },
+  { title: 'Category 2' },
+  { title: 'Category 3' }
+])
 
 # Создание пользователей
 users = User.create!([
-                      { name: 'User 1', email: 'user1@example.com' },
-                      { name: 'User 2', email: 'user2@example.com' },
-                      { name: 'User 3', email: 'user3@example.com' }
-                     ])
+  { name: 'User 1', email: 'user1@example.com' },
+  { name: 'User 2', email: 'user2@example.com' },
+  { name: 'User 3', email: 'user3@example.com' }
+])
 
 # Создание тестов
 tests = Test.create!([
-                       { title: 'Test 1', level: 1, category_id: categories[0].id, author_id: users[0].id },
-                       { title: 'Test 2', level: 2, category_id: categories[0].id, author_id: users[1].id },
-                       { title: 'Test 3', level: 3, category_id: categories[0].id, author_id: users[2].id }
-                     ])
+  { title: 'Test 1', level: 1, category: categories[0], author: users[0] },
+  { title: 'Test 2', level: 2, category: categories[0], author: users[1] },
+  { title: 'Test 3', level: 3, category: categories[0], author: users[2] }
+])
 
 # Создание вопросов для тестов
 questions = Question.create!([
-                               { content: 'Question 1', test_id: tests[0].id },
-                               { content: 'Question 2', test_id: tests[0].id },
-                               { content: 'Question 3', test_id: tests[1].id },
-                               { content: 'Question 4', test_id: tests[1].id },
-                               { content: 'Question 5', test_id: tests[2].id },
-                               { content: 'Question 6', test_id: tests[2].id }
-                             ])
+  { content: 'Какая деталь автомобиля получила своё название от одного из семи чудес Древнего мира?', test: tests[0] },
+  { content: 'С каким из этих государств Румыния не имеет общих границ?', test: tests[0] },
+  { content: 'Про кого из персонажей «Гамлета» Гертруда, королева датская, говорит в пьесе: «Он тучен и одышлив»?', test: tests[1] },
+  { content: 'Кто возглавлял экспедицию, совершившую первое кругосветное плавание?', test: tests[1] },
+  { content: 'Какое из этих государств не имеет морских берегов?', test: tests[2] },
+  { content: 'Что такое фьючерс?', test: tests[2] }
+])
 
 # Создание ответов для вопросов
 Answer.create!([
-  { body: 'Answer 1 for Question 1', correct: true, question_id: questions[0].id },
-  { body: 'Answer 2 for Question 1', correct: false, question_id: questions[0].id },
-  { body: 'Answer 3 for Question 1', correct: false, question_id: questions[0].id },
-  { body: 'Answer 4 for Question 1', correct: false, question_id: questions[0].id },
-  { body: 'Answer 1 for Question 2', correct: false, question_id: questions[1].id },
-  { body: 'Answer 2 for Question 2', correct: true, question_id: questions[1].id },
-  { body: 'Answer 3 for Question 2', correct: false, question_id: questions[1].id },
-  { body: 'Answer 4 for Question 2', correct: false, question_id: questions[1].id },
-  { body: 'Answer 1 for Question 3', correct: false, question_id: questions[2].id },
-  { body: 'Answer 2 for Question 3', correct: false, question_id: questions[2].id },
-  { body: 'Answer 3 for Question 3', correct: true, question_id: questions[2].id },
-  { body: 'Answer 4 for Question 3', correct: false, question_id: questions[2].id },
-  { body: 'Answer 1 for Question 4', correct: false, question_id: questions[3].id },
-  { body: 'Answer 2 for Question 4', correct: false, question_id: questions[3].id },
-  { body: 'Answer 3 for Question 4', correct: false, question_id: questions[3].id },
-  { body: 'Answer 4 for Question 4', correct: true, question_id: questions[3].id },
-  { body: 'Answer 1 for Question 5', correct: false, question_id: questions[4].id },
-  { body: 'Answer 2 for Question 5', correct: true, question_id: questions[4].id },
-  { body: 'Answer 3 for Question 5', correct: false, question_id: questions[4].id },
-  { body: 'Answer 4 for Question 5', correct: false, question_id: questions[4].id },
-  { body: 'Answer 1 for Question 6', correct: true, question_id: questions[5].id },
-  { body: 'Answer 2 for Question 6', correct: false, question_id: questions[5].id },
-  { body: 'Answer 3 for Question 6', correct: false, question_id: questions[5].id },
-  { body: 'Answer 4 for Question 6', correct: false, question_id: questions[5].id }
+  { body: 'Фара', correct: true, question: questions[0] },
+  { body: 'Бампер', correct: false, question: questions[0] },
+  { body: 'Капот', correct: false, question: questions[0] },
+  { body: 'Лобовое стекло', correct: false, question: questions[0] },
+  { body: 'Сербия', correct: false, question: questions[1] },
+  { body: 'Россия', correct: true, question: questions[1] },
+  { body: 'Венгрия', correct: false, question: questions[1] },
+  { body: 'Швейцария', correct: false, question: questions[1] },
+  { body: 'Клавдий, король датский', correct: false, question: questions[2] },
+  { body: 'Горацио, друг Гамлета', correct: false, question: questions[2] },
+  { body: 'Гамлет, сын Гертруды', correct: true, question: questions[2] },
+  { body: 'Answer 4 for Question 1', correct: false, question: questions[2] },
+  { body: 'Христофор Колумб', correct: false, question: questions[3] },
+  { body: 'Афанасий Никитин', correct: false, question: questions[3] },
+  { body: 'Фердинанд Магеллан', correct: false, question: questions[3] },
+  { body: 'Фернан Магеллан', correct: true, question: questions[3] },
+  { body: 'Китай', correct: false, question: questions[4] },
+  { body: 'Монголия', correct: true, question: questions[4] },
+  { body: 'Индонезия', correct: false, question: questions[4] },
+  { body: 'Австрия', correct: false, question: questions[4] },
+  { body: 'Вид биржевого контракта', correct: true, question: questions[5] },
+  { body: 'Сумма денег в казне государства', correct: false, question: questions[5] },
+  { body: 'План на будущее', correct: false, question: questions[5] },
+  { body: 'Парус на яхте', correct: false, question: questions[5] }
 ])
 
 # Создание результатов для пользователей и тестов
 Result.create!([
-                 { user_id: users[0].id, test_id: tests[0].id },
-                 { user_id: users[1].id, test_id: tests[1].id },
-                 { user_id: users[2].id, test_id: tests[2].id }
-               ])
+  { user: users[0], test: tests[0] },
+  { user: users[1], test: tests[1] },
+  { user: users[2], test: tests[2] }
+])
 
 puts 'Seed data created successfully!'
